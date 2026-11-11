@@ -15,3 +15,15 @@ def getAllStudents():
         print(row)  
 
     conn.close() #disconnect from database
+
+def addStudent(first_name, last_name, email, enrollment_date):
+    """Add a new student to the table."""
+    conn = get_connection() #connect to database
+    cur = conn.cursor()
+
+    cur.execute("INSERT INTO students (first_name, last_name, email, enrollment_date) "
+                "VALUES (%s, %s, %s, %s);",
+                (first_name, last_name, email, enrollment_date)) #insert student
+    
+    conn.commit() #save changes
+    conn.close() #disconnect from database
