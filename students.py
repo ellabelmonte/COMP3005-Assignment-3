@@ -18,7 +18,7 @@ def getAllStudents():
 
 def addStudent(first_name, last_name, email, enrollment_date):
     """Add a new student to the table."""
-    conn = get_connection() #connect to database
+    conn = get_connection() 
     cur = conn.cursor()
 
     cur.execute("INSERT INTO students (first_name, last_name, email, enrollment_date) "
@@ -27,3 +27,21 @@ def addStudent(first_name, last_name, email, enrollment_date):
     
     conn.commit() #save changes
     conn.close() #disconnect from database
+
+def updateStudentEmail(student_id, new_email):
+    """Update the email address of the student with the given student_id."""
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("UPDATE students SET email = %s WHERE student_id = %s;",
+                (new_email, student_id))
+    conn.commit()
+    conn.close()
+
+
+def deleteStudent(student_id):
+    """Delete the student with the given student_id."""
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM students WHERE student_id = %s;", (student_id,))
+    conn.commit()
+    conn.close()
