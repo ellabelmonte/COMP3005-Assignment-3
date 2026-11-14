@@ -1,14 +1,5 @@
 # COMP3005-Assignment-3
 
-
-Video Demo:
-https://youtu.be/8efQOTGs4wA
-
-
-## How to Compile
-
-# COMP3005-Assignment-3
-
 ## Video Demo
 https://youtu.be/8efQOTGs4wA
 
