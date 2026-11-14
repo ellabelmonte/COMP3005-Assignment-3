@@ -45,3 +45,18 @@ def deleteStudent(student_id):
     cur.execute("DELETE FROM students WHERE student_id = %s;", (student_id,))
     conn.commit()
     conn.close()
+
+#choice menu
+while True:
+    choice = input("\n\nPick one:\n1) List \n2) Add \n3) Update email \n4) Delete \n0) Exit: ")
+    if choice == "1":
+        getAllStudents()
+    elif choice == "2":
+        addStudent(input("First name: "), input("Last name: "),
+                   input("Email: "), input("Enrollment date (YYYY-MM-DD): "))
+    elif choice == "3":
+        updateStudentEmail(int(input("Student ID: ")), input("New email: "))
+    elif choice == "4":
+        deleteStudent(int(input("Student ID: ")))
+    elif choice == "0":
+        break
